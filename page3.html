@@ -1,29 +1,36 @@
+<!DOCTYPE HTML >
 <html>
+<head>
+<title>testing 2d piechart</title>
+</head>
 <body>
 
-			<figure style="width:300px;background:#fff">
-				Red Segment Angle<br />
-				(HTML5 range input):<br />
-				0&deg; <input id="redsegment" type="range" min="0" max="360" step="1" value="120" style="width:180px" /> 360&deg;<br />
-				Canvas 2D pie chart:<br />
-				<canvas id="piechart1" width="180" height="180"></canvas><br />
 
-				<script src="piechart-outline.js"></script>
-				<script>
-					var initval = 120;
-					var slider = $('#redsegment');
-					slider.change(function() { updateCanvas(slider.val()); });
-					slider.val(initval);
-					updateCanvas(initval);
-					function updateCanvas(r) {
-						var g, b;
-						g = b = (360.0 - r) / 2.0;
-						piechart("piechart1", ["#f00", "#0f0", "#00f"], [r, g, b]);
-					}
-				</script>
-				<figcaption>HTML5/Canvas 2D Pie Chart</figcaption>
-			</figure>
-			
+                        <figure style="width:300px;background:#fff">
+                                Red Segment Angle<br />
+                                (HTML5 range input):<br />
+                                0&deg; <input id="redsegment" type="range" min="0" max="360" step="1" value="120" style="width:180px" /> 360&deg;<br />
+                                Canvas 2D pie chart:<br />
+                                <canvas id="piechart1" width="180" height="180"></canvas><br />
+
+
+                                <script src="piechart-outline.js"></script>
+                                <script>
+                                        var initval = 120;
+                                        var slider = $('#redsegment');
+                                        slider.change(function() { updateCanvas(slider.val()); });
+                                        slider.val(initval);
+                                        updateCanvas(initval);
+                                        function updateCanvas(r) {
+                                                var g, b;
+                                                g = b = (360.0 - r) / 2.0;
+                                                piechart("piechart1", ["#f00", "#0f0", "#00f"], [r, g, b]);
+                                        }
+                                </script>
+                                <figcaption>HTML5/Canvas 2D Pie Chart</figcaption>
+                        </figure>
+                        
+
 
 </body>
-</html>			
+</html>
