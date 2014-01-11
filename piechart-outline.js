@@ -1,3 +1,5 @@
+<script>
+
 /* CANVAS 2D PIE CHART
  * Args:
  * [1] chartId: 'yourCanvasElementId'
@@ -37,3 +39,6 @@ function piechart(chartId, colours, angles) {
 
 }
 
+
+
+</script>
