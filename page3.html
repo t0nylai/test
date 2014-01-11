@@ -1,39 +1,29 @@
-/* CANVAS 2D PIE CHART
- * Args:
- * [1] chartId: 'yourCanvasElementId'
- * [2] colours: ['#f00', '#0f0', '#00f'] 
- *     permissible colour specs:
- *     - red
- *     - #ff0000
- *     - #f00
- *     - rgb(255,0,0)
- *     - rgba(255,0,0,0.5) (alpha range: 0.0-1.0)
- * [3] angles: [60, 90, 210] (360 deg overall) 
- * Note: colours and angles arrays must have identical length.
- */
+<html>
+<body>
 
-function piechart(chartId, colours, angles) {
+			<figure style="width:300px;background:#fff">
+				Red Segment Angle<br />
+				(HTML5 range input):<br />
+				0&deg; <input id="redsegment" type="range" min="0" max="360" step="1" value="120" style="width:180px" /> 360&deg;<br />
+				Canvas 2D pie chart:<br />
+				<canvas id="piechart1" width="180" height="180"></canvas><br />
 
-	var canvas  = document.getElementById(chartId);
-	var context = canvas.getContext("2d");
-	var x = Math.floor(canvas.width  / 2);
-	var y = Math.floor(canvas.height / 2);
-	var startAngle = 0.0;
+				<script src="piechart-outline.js"></script>
+				<script>
+					var initval = 120;
+					var slider = $('#redsegment');
+					slider.change(function() { updateCanvas(slider.val()); });
+					slider.val(initval);
+					updateCanvas(initval);
+					function updateCanvas(r) {
+						var g, b;
+						g = b = (360.0 - r) / 2.0;
+						piechart("piechart1", ["#f00", "#0f0", "#00f"], [r, g, b]);
+					}
+				</script>
+				<figcaption>HTML5/Canvas 2D Pie Chart</figcaption>
+			</figure>
+			
 
-	for (var i = 0; i < colours.length; i++) {
-		drawSegment(colours[i], angles[i]);
-	}
-
-	function drawSegment(colour, angle) {
-		var endAngle = startAngle + parseFloat(angle) * Math.PI / 180;
-		context.beginPath();
-		context.moveTo(x, y);
-		context.arc(x, y, (x > y ? y : x), startAngle, endAngle, false);
-		context.fillStyle = colour;
-		context.fill();
-		context.closePath();
-		startAngle = endAngle;
-	}
-
-}
-
+</body>
+</html>			
