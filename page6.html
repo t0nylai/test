@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide();
+$("#select-native-1").hide();
+  });
+$("#select-native-1").change(function(){
+  alert($("#select-native-1").val());
+});
+});
+</script>
+</head>
+
+<body>
+<h2>This is a heading</h2>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<button>Click me</button>
+    <select name="select-native-1" id="select-native-1">
+        <option value="1">The 1st Option</option>
+        <option value="2">The 2nd Option</option>
+        <option value="3">The 3rd Option</option>
+        <option value="4">The 4th Option</option>
+    </select> 
+</body>
+</html>
