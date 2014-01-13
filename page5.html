@@ -3,12 +3,13 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Geocoding service</title>
+    <title>page title</title>
     <style>
-      html, body, #map-canvas {
-        height: 80%;
-        margin: 10px;
-        padding: 10px
+        html, body, #map-canvas {
+        height: 300px;
+        margin: 1px;
+        padding: 1px
+
       }
       #panel {
         position: absolute;
@@ -28,15 +29,17 @@
 $(document).ready(function(){
   $("#select-native-1").change(function(){
      alert($("#select-native-1").val());
+
   });
 });
 </script>
-    <script>
+
+<script>
 var geocoder;
 var map;
 function initialize() {
   geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(49.25697558956847, -123.12390395);
+  var latlng = new google.maps.LatLng(49.25697, -123.12390);
   var mapOptions = {
     zoom: 8,
     center: latlng
@@ -71,17 +74,37 @@ var option = document.getElementById('select-native-1').value;
 </head>
 
 <body>
-    <div id="panel">
+<div  data-role="page"> 
 
-    <select name="select-native-1" id="select-native-1">
+   <div  data-role="header">Page header</div> 
+
+<div data-role="content" >
+  
+
+   <select name="select-native-1" id="select-native-1">
         <option value="1">The 1st Option</option>
         <option value="2">The 2nd Option</option>
         <option value="3">The 3rd Option</option>
         <option value="4">The 4th Option</option>
-    </select> 
+   </select> 
       <input id="address" type="text" value="5111 booth ave, Burnaby">
       <input type="button" value="Geocode" onclick="codeAddress()">
+
+  <div  id="map-canvas"></div>
+
+  <input id="campname" type="text" value="campname">
+  <input id="campdesc" type="text" value="campdesc">
+  <input id="url" type="text" value="url">
+
+
+
 </div>
-    <div id="map-canvas"></div>
+
+       <div data-role="footer">
+                <h4>Page Footer</h4>
+        </div>
+
+</div>
+
 </body>
 </html>
