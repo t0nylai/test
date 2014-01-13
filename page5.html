@@ -26,12 +26,19 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
 <script>
+function displayVals() {
+  var singleValues = $("#select-native-1").val();
+  
+ $("#campname").val($("#select-native-1").val());
+ $("#campdesc").val($("#select-native-1").val());
+ $("#campurl").val($("#select-native-1").val());
+}
+ 
 $(document).ready(function(){
-  $("#select-native-1").change(function(){
-     alert($("#select-native-1").val());
-
-  });
+  $("#select-native-1").change(displayVals );
 });
+
+
 </script>
 
 <script>
@@ -94,7 +101,7 @@ var option = document.getElementById('select-native-1').value;
 
   <input id="campname" type="text" value="campname">
   <input id="campdesc" type="text" value="campdesc">
-  <input id="url" type="text" value="url">
+  <input id="campurl" type="text" value="url">
 
 
 
