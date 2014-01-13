@@ -3,6 +3,10 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		
     <title>page title</title>
     <style>
         html, body, #map-canvas {
@@ -27,11 +31,10 @@
 </script>
 <script>
 function displayVals() {
-  var singleValues = $("#select-native-1").val();
-  
- $("#campname").val($("#select-native-1").val());
- $("#campdesc").val($("#select-native-1").val());
- $("#campurl").val($("#select-native-1").val());
+	var singleValues = $("#select-native-1").val();
+	$("#campname").val(singleValues);
+	$("#campdesc").val(singleValues);
+	$("#campurl").val(singleValues);
 }
  
 $(document).ready(function(){
@@ -83,26 +86,28 @@ var option = document.getElementById('select-native-1').value;
 <body>
 <div  data-role="page"> 
 
-   <div  data-role="header">Page header</div> 
+   <div  data-role="header"><h4>Page Header</h4></div> 
 
 <div data-role="content" >
   
+ 
 
    <select name="select-native-1" id="select-native-1">
-        <option value="1">The 1st Option</option>
-        <option value="2">The 2nd Option</option>
-        <option value="3">The 3rd Option</option>
-        <option value="4">The 4th Option</option>
+	<option value="1">Burnaby Campus</option>
+	<option value="2">Downtown Campus</option>
+	<option value="3">Marine Campus</option>
+	<option value="4">Aerospace Technology Campus</option>
+	<option value="5">Great Northern Way Campus  </option>
    </select> 
-      <input id="address" type="text" value="5111 booth ave, Burnaby">
-      <input type="button" value="Geocode" onclick="codeAddress()">
+		<input id="address" type="text" value="">
+		<input type="button" value="Geocode" onclick="codeAddress()">
 
   <div  id="map-canvas"></div>
 
   <input id="campname" type="text" value="campname">
   <input id="campdesc" type="text" value="campdesc">
   <input id="campurl" type="text" value="url">
-
+<a href="index.html" data-role="button" data-icon="home">Home</a>
 
 
 </div>
