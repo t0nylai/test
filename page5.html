@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport"  content="width=device-width, initial-scale=1, user-scalable=Yes">
+    <meta name="viewport"  content="width=device-width, height=device-height, initial-scale=1, user-scalable=Yes">
     <meta charset="utf-8">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -29,7 +29,6 @@ function displayVals() {
 	
 	$("#campaddr").val(CampusAddr[singleValues]);
 	$("#campdesc").val(CampusDesc[singleValues]);
-	//$("#campurl").val(CampusUrl[singleValues]);
 	codeAddress();
 	$("#campurl").attr("href", CampusUrl[singleValues]);
 	$("#campurl").text( CampusUrl[singleValues]);
@@ -38,8 +37,15 @@ function displayVals() {
  
 $(document).ready(function(){
   $("#select-native-1").change(displayVals );
+  //alert($(window).height());
+  //alert($(window).width());
+  $("#map-canvas").attr("height",$(window).height());
 });
 
+$(window).bind('resize', function () {
+   // deviceWidth = $('[data-role="page"]').first().width());
+   alert("resize");
+}).trigger('resize');
 
 </script>
 
@@ -79,7 +85,7 @@ function codeAddress() {
   });
   }
   
-  // clean up markers so only one marker at a time
+  // clean up markers [] so only one marker at a time
     for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
   }		  
@@ -100,8 +106,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <div data-role="content" >
   
- 
-
    <select name="select-native-1" id="select-native-1" data-theme="e">
 		<option value="0" >Select BCIT Campus</option>
 		<option value="1">Burnaby Campus</option>
