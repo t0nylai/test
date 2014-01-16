@@ -37,14 +37,16 @@ function displayVals() {
  
 $(document).ready(function(){
   $("#select-native-1").change(displayVals );
+  $("#map-canvas").css("height",$(window).height()-250);  
 });
 
-$( window ).on( "orientationchange", function( event ) {
- // if ($("#map-canvas").css("height")=="500px"){ $("#map-canvas").css("height","300px");} else {$("#map-canvas").css("height","500px");}
-});
 
 $(window).resize(function() {
-$("#map-canvas").css("height",$(window).height()-200);
+	$("#map-canvas").css("height",$(window).height()-250);
+	// center the map
+	var center = map.getCenter();
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(center); 
 });
 
 </script>
@@ -85,12 +87,12 @@ function codeAddress() {
   });
   }
   
-  // clean up markers [] so only one marker at a time
-  //  for (var i = 0; i < markers.length; i++) {
-  //  markers[i].setMap(null);
- // }		  
-//	markers = [];
-//}
+   //clean up markers [] so only one marker at a time
+    for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }		  
+	markers = [];
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
