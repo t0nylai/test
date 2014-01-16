@@ -32,7 +32,6 @@ function displayVals() {
 	codeAddress();
 	$("#campurl").attr("href", CampusUrl[singleValues]);
 	$("#campurl").text( CampusUrl[singleValues]);
-	$("#map-canvas").css("height","500px");
 	 
 }
  
@@ -41,9 +40,9 @@ $(document).ready(function(){
 });
 
 $( window ).on( "orientationchange", function( event ) {
-  $( "#orientation" ).text( "This device is in " + event.orientation + " mode!" );
+  if ($("#map-canvas").css("height")=="500px"){ $("#map-canvas").css("height","300px");} else {$("#map-canvas").css("height","500px");}
 });
-$( window ).orientationchange();
+
 </script>
 
 <script>
@@ -99,9 +98,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <body>
 <div  data-role="page" > 
 
-   <div  data-role="header" data-title="ccc" ><h4>BCIT Campuses</h4>
-   <h1 id="orientation">orientationchange Not Supported on this Device.</h1>
-   </div> 
+   <div  data-role="header" data-title="ccc" ><h4>BCIT Campuses</h4></div> 
 
 <div data-role="content" >
   
