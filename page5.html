@@ -44,7 +44,7 @@ $( window ).on( "orientationchange", function( event ) {
 });
 
 $(window).resize(function() {
-$("#map-canvas").css("height",parseInt($(window).height()*.6));
+$("#map-canvas").css("height",$(window).height()-100);
 //alert($(window).height());
 });
 
