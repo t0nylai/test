@@ -40,7 +40,11 @@ $(document).ready(function(){
 });
 
 $( window ).on( "orientationchange", function( event ) {
-  if ($("#map-canvas").css("height")=="500px"){ $("#map-canvas").css("height","300px");} else {$("#map-canvas").css("height","500px");}
+ // if ($("#map-canvas").css("height")=="500px"){ $("#map-canvas").css("height","300px");} else {$("#map-canvas").css("height","500px");}
+});
+
+$(window).resize(function() {
+$("#map-canvas").css("height",$(window).height());
 });
 
 </script>
