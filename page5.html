@@ -12,7 +12,7 @@
         #map-canvas {
         margin: 1px;
         padding: 1px;
-		height: 300px;
+		height: 200px;
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
@@ -44,8 +44,7 @@ $( window ).on( "orientationchange", function( event ) {
 });
 
 $(window).resize(function() {
-$("#map-canvas").css("height",$(window).height()-100);
-//alert($(window).height());
+$("#map-canvas").css("height",$(window).height()-200);
 });
 
 </script>
@@ -87,12 +86,11 @@ function codeAddress() {
   }
   
   // clean up markers [] so only one marker at a time
-    for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
-  }		  
-	markers = [];
-  
-}
+  //  for (var i = 0; i < markers.length; i++) {
+  //  markers[i].setMap(null);
+ // }		  
+//	markers = [];
+//}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -103,11 +101,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <body>
 <div  data-role="page" > 
 
-   <div  data-role="header" data-title="ccc" ><h4>BCIT Campuses</h4></div> 
+   <div  data-role="header" data-title="BCIT Campuses" ><center>BCIT Campuses</center></div> 
 
 <div data-role="content" >
   
-   <select name="select-native-1" id="select-native-1" data-theme="e">
+   <select name="select-native-1" id="select-native-1" data-theme="e" data-mini="true">
 		<option value="0">Select BCIT Campus</option>
 		<option value="1">Burnaby Campus</option>
 		<option value="2">Downtown Campus</option>
@@ -120,13 +118,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
   <div  id="map-canvas" ></div>
 	
-	<input id="campaddr" type="text" value="" readonly data-theme="e">
-	<input id="campdesc" type="text" value="" readonly data-theme="e">
-	<a id ="campurl"  href="" data-role="link" data-icon="home" target="_blank"></a>
+	<input id="campaddr" type="text" value="" readonly data-theme="e" data-mini="true">
+	<input id="campdesc" type="text" value="" readonly data-theme="e" data-mini="true">
+	<a id ="campurl"  href="" data-role="link" target="_blank" data-mini="true"></a>
 
 </div>
 
-       <div data-role="footer" ><h4>Tony Lai</h4></div>
+       <div data-role="footer" ><center>Tony Lai</center></div>
 
 </div>
 
