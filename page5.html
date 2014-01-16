@@ -18,6 +18,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
+
 <script>
 var CampusAddr = [ "","3700 Willingdon Avenue, Burnaby, BC V5G 3H2", "555 Seymour Street, Vancouver, British Columbia, V6B 3H6 , Canada", "265 West Esplanade, North Vancouver, British Columbia, V7M 1A5, Canada", "3800 Cessna Drive, Richmond, BC, V7B 0A1", "555 Great Northern Way, Vancouver, British Columbia, Canada, V5T 1E2" ];
 var CampusDesc = [ "","The BCIT Burnaby Campus is located just off the Trans-Canada Highway at the corner of Willingdon Avenue and Canada Way", "The BCIT Downtown Campus is in the heart of Vancouver, near the Granville Skytrain Station", "The BCIT Marine Campus is located in North Vancouver near the Lonsdale Quay and SeaBus terminal", "The Aerospace Technology Campus is in Richmond near the South Terminal for the Vancouver International Airport", "The Great Northern Way Campus is located on Great Northern Way between Main St and Clark Drive" ];
@@ -26,31 +27,23 @@ var CampusUrl = [ "","http://www.bcit.ca/about/burnaby.shtml", "http://www.bcit.
 
 function displayVals() {
 	var singleValues = $("#select-native-1").val();
-	
 	$("#campaddr").val(CampusAddr[singleValues]);
 	$("#campdesc").val(CampusDesc[singleValues]);
 	codeAddress();
 	$("#campurl").attr("href", CampusUrl[singleValues]);
 	$("#campurl").text( CampusUrl[singleValues]);
-
+	$("#map-canvas").css("height","500px");
+	 
 }
  
 $(document).ready(function(){
   $("#select-native-1").change(displayVals );
 });
 
-$.ajaxSetup({
-    beforeSend:function(){
-        // show image here
-        $("#busy").show();
-    },
-    complete:function(){
-        // hide image here
-        $("#busy").hide();
-    }
+$( window ).on( "orientationchange", function( event ) {
+  $( "#orientation" ).text( "This device is in " + event.orientation + " mode!" );
 });
-
-
+$( window ).orientationchange();
 </script>
 
 <script>
@@ -106,7 +99,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <body>
 <div  data-role="page" > 
 
-   <div  data-role="header" data-title="ccc" ><h4>BCIT Campuses</h4></div> 
+   <div  data-role="header" data-title="ccc" ><h4>BCIT Campuses</h4>
+   <h1 id="orientation">orientationchange Not Supported on this Device.</h1>
+   </div> 
 
 <div data-role="content" >
   
@@ -118,14 +113,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<option value="4">Aerospace Technology Campus</option>
 		<option value="5">Great Northern Way Campus  </option>
    </select> 
+   
+
 
   <div  id="map-canvas" ></div>
-
+	
 	<input id="campaddr" type="text" value="" readonly data-theme="e">
 	<input id="campdesc" type="text" value="" readonly data-theme="e">
 	<a id ="campurl"  href="" data-role="link" data-icon="home" target="_blank"></a>
-
-<img id="busy" src="ajax-loader.gif" style="visibility:hidden;" />
 
 </div>
 
