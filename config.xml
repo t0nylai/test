@@ -13,8 +13,10 @@
         An example for phonegap build docs. 
     </description>
 
-    <author href="https://build.phonegap.com" email="support@phonegap.com">
-        Hardeep Shoker 
+    <author href="http://www.tonylai.net" email="tonylai@hotmail.com">
+        Tony Lai
     </author>
+
+    <icon src="icon.png" />
 
 </widget>
