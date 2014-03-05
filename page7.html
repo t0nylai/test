@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport"  content="width=device-width, height=device-height, initial-scale=1, user-scalable=Yes">
+    <meta charset="utf-8">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		
+    <title>BCIT Campuses</title>
+
+
+
+<!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="coolclock.js"></script>
+<script type="text/javascript" src="moreskins.js"></script>
+
+
+</head>
+
+
+<body onload="CoolClock.findAndCreateClocks()">
+<div  data-role="page" > 
+
+   <div  data-role="header" data-title="BCIT Campuses" ><h4>BCIT Campuses</h4></div> 
+
+<div data-role="content" >
+  
+  <div class="ui-grid-a">
+	  <div class="ui-block-a">clock <canvas id="clk1" class="CoolClock:classic:90::-8 myClock"></canvas></div>
+	  <div class="ui-block-b">
+		  <input id="campaddr" type="text" value="" readonly data-theme="e" data-mini="true">
+		  <input id="campdesc" type="text" value="" readonly data-theme="e" data-mini="true">
+	</div>
+</div><!-- /grid-a -->
+
+
+</div>
+
+       <div data-role="footer" ><h4>Tony Lai</h4></div>
+
+</div>
+
+</body>
+
+</html>
